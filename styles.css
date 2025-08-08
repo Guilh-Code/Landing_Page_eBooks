@@ -102,6 +102,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 }
 
 .hero-title {
+    font-size: 3.5rem;
     line-height: 1.2;
     margin-bottom: 1rem;
     color: #FFFFFF;
@@ -112,7 +113,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 }
 
 .hero-subtitle {
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-size: 1.5rem;
     margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
@@ -131,6 +132,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 2.5rem;
 }
 
 .section-text {
@@ -139,12 +141,58 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     text-align: center;
 }
 
-/* 3. Seção da Solução */
+/* Media Query para telas menores (dispositivos móveis) */
+@media (max-width: 768px) {
+    #hero-section {
+        background-attachment: scroll; /* Desativa o efeito parallax */
+        height: auto;
+        min-height: 100vh;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-section {
+        padding: 4rem 0; /* Diminui o padding vertical das seções */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Reduz o tamanho do título em telas menores */
+        margin-bottom: 2rem;
+    }
+
+    #hero-section {
+        background-attachment: scroll; /* Desativa o efeito parallax */
+        height: auto;
+        min-height: 100vh;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem; /* Reduz o tamanho do título principal */
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem; /* Reduz o tamanho do subtítulo */
+    }
+
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+
+/*
+ * 3. Seção do Problema
+ */
 #problema-section {
     background-color: #FFFFFF;
     color: var(--primary-color);
     text-align: center;
-    padding: 6rem 0;
+    padding: 6rem 0; /* padding padrão para desktop */
 }
 
 #problema-section .section-title {
@@ -152,13 +200,11 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     margin-bottom: 2rem;
 }
 
-/* Destaque para a palavra-chave no título */
 .highlight-text-problem {
     color: var(--secondary-color);
     font-weight: 700;
 }
 
-/* Removendo o ícone, vamos focar em dar mais destaque ao texto */
 .section-text strong {
     color: var(--secondary-color);
 }
@@ -166,7 +212,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 .section-text {
     max-width: 800px;
     margin: 0 auto 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Tamanho padrão para desktop */
     line-height: 1.6;
 }
 
@@ -174,14 +220,24 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     margin-bottom: 0;
 }
 
+/*
+ * Media Queries para a Seção de Problema
+ */
 @media (max-width: 768px) {
+    #problema-section {
+        padding: 4rem 1rem; /* Diminui o padding e adiciona um padding lateral */
+    }
+
+    #problema-section .section-title {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
+
     .section-text {
-        font-size: 1rem;
+        font-size: 1rem; /* Reduz o tamanho do texto para melhor leitura */
     }
 }
 
-/* Seção Mapa*/
-
+/* Seção Mapa */
 #solucao-section {
     background-color: var(--light-gray);
     position: relative;
@@ -189,9 +245,9 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     padding: 6rem 0;
 }
 
-/* Estilo específico para o título dentro da seção de solução */
 #solucao-section .section-title {
     color: #FFFFFF;
+    font-size: 2.5rem; /* Padrão para desktop */
 }
 
 .carousel-wrapper {
@@ -199,7 +255,6 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     z-index: 1;
 }
 
-/* O fundo do mapa */
 #solucao-section::before {
     content: '';
     position: absolute;
@@ -219,7 +274,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Garante que apenas 3 cards apareçam */
+    overflow: hidden;
 }
 
 .carousel-track {
@@ -241,20 +296,17 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1;
     position: relative;
-    /* O estado padrão dos cards na fila */
     transform: scale(0.65); 
-    opacity: 0.7; /* Fica 30% mais transparente */
+    opacity: 0.7;
 }
 
-/* O card selecionado fica maior e mais opaco */
 .solution-card.active {
-    transform: scale(1.1); /* Fica 10% maior que o tamanho original */
+    transform: scale(1.1);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     z-index: 2;
-    opacity: 1; /* Fica totalmente opaco */
+    opacity: 1;
 }
 
-/* Os estilos para o icon-circle, h3, etc, podem permanecer os mesmos. */
 .icon-circle {
     display: inline-flex;
     justify-content: center;
@@ -266,20 +318,15 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     margin-bottom: 1rem;
     box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
     transition: all 0.3s ease;
-    /* Estilos para o emoji */
-    font-size: 50px; /* Define o tamanho do emoji */
+    font-size: 50px;
 }
 
 .solution-card.active .icon-circle {
     transform: scale(1.1);
 }
 
-.icon-circle img {
-    width: 40px;
-}
-
 .solution-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Padrão para desktop */
     margin-bottom: 0.8rem;
 }
 
@@ -287,11 +334,6 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     font-size: 2.2rem;
 }
 
-.highlight-text {
-    color: var(--secondary-color);
-}
-
-/* Botões de Navegação */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -312,13 +354,8 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-#prev-button {
-    left: 2rem;
-}
-
-#next-button {
-    right: 2rem;
-}
+#prev-button { left: 2rem; }
+#next-button { right: 2rem; }
 
 .carousel-button svg {
     color: var(--primary-color);
@@ -326,7 +363,57 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     height: 24px;
 }
 
-/* 4. Detalhes dos E-books */
+/* Media Queries para a Seção de Mapa */
+@media (max-width: 992px) {
+    #solucao-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+@media (max-width: 768px) {
+    #solucao-section::before {
+        background-attachment: scroll;
+    }
+    .carousel-container {
+        height: auto;
+        flex-direction: column;
+        overflow: visible; /* Permite que todos os cards fiquem visíveis */
+    }
+    .carousel-track {
+        flex-direction: column;
+        transition: none; /* Remove a transição para evitar bugs */
+        transform: none !important; /* Reseta o transform do JS */
+    }
+    .solution-card {
+        min-width: 90%;
+        margin: 1rem 0;
+        transform: scale(1); /* Reseta a escala para 1 */
+        opacity: 1; /* Torna todos os cards opacos */
+        padding: 2rem 1.5rem;
+    }
+    .solution-card.active {
+        transform: scale(1); /* Reseta o active para não ter zoom extra */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .carousel-button {
+        display: none; /* Esconde os botões de navegação */
+    }
+    .solution-card h3 {
+        font-size: 1.5rem;
+    }
+    .solution-card.active h3 {
+        font-size: 1.5rem;
+    }
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+    }
+    .icon-circle img {
+        width: 30px;
+    }
+}
+
+/* Detalhes dos E-books */
 #ebooks-section {
     padding: 6rem 0;
 }
@@ -334,8 +421,8 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 .ebook-item {
     display: flex;
     align-items: center;
-    gap: 4rem; /* Aumenta o espaçamento entre a imagem e o texto */
-    margin-bottom: 6rem; /* Aumenta o espaçamento entre os blocos de e-book */
+    gap: 4rem;
+    margin-bottom: 6rem;
 }
 
 @media (max-width: 992px) {
@@ -343,6 +430,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
         flex-direction: column;
         text-align: center;
         gap: 2rem;
+        margin-bottom: 4rem; /* Reduz o espaçamento entre os e-books */
     }
 }
 
@@ -360,13 +448,13 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     max-width: 450px;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Aumenta a sombra padrão */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
 .ebook-cover:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Sombra mais forte no hover */
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .ebook-details h3 {
@@ -387,21 +475,22 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 
 .ebook-features li {
     display: flex;
-    align-items: flex-start; /* Alinha o ícone e o texto ao topo */
+    align-items: flex-start;
     font-family: var(--font-body);
     font-weight: 600;
-    margin-bottom: 0.8rem; /* Aumenta o espaçamento entre os itens */
+    margin-bottom: 0.8rem;
     font-size: 1rem;
 }
 
 .check-icon {
     color: var(--cta-color);
     margin-right: 0.8rem;
-    font-size: 1.4rem; /* Aumenta o tamanho do ícone */
-    line-height: 1; /* Garante que o ícone esteja alinhado com o texto */
-    transform: translateY(2px); /* Pequeno ajuste para alinhamento vertical */
+    font-size: 1.4rem;
+    line-height: 1;
+    transform: translateY(2px);
 }
 
+/* Media Queries para a Seção de E-books */
 @media (max-width: 992px) {
     .ebook-details h3 {
         font-size: 2rem;
@@ -411,23 +500,51 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     }
 }
 
+@media (max-width: 768px) {
+    #ebooks-section {
+        padding: 4rem 1rem;
+    }
+    .ebook-item {
+        margin-bottom: 3rem;
+    }
+    .ebook-cover {
+        max-width: 280px; /* Reduz ainda mais a largura da capa */
+    }
+    .ebook-details {
+        padding: 0 1rem;
+    }
+    .ebook-details h3 {
+        font-size: 1.5rem; /* Ajusta o tamanho do título do e-book */
+        margin-bottom: 1rem;
+    }
+    .ebook-details p {
+        font-size: 1rem; /* Ajusta o tamanho do parágrafo */
+        margin-bottom: 1rem;
+    }
+    .ebook-features li {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto da lista */
+    }
+    .check-icon {
+        font-size: 1.2rem; /* Ajusta o tamanho do ícone */
+    }
+}
+
 /* 5. Seção de Autoridade */
 #sobre-ape-section {
     background-color: var(--light-gray);
-    padding: 6rem 0; /* Adiciona um espaçamento vertical padrão */
+    padding: 6rem 0;
 }
 
-/* Título com destaque */
 #sobre-ape-section .section-title {
     text-align: center;
-    margin-bottom: 4rem; /* Aumenta o espaçamento abaixo do título */
+    margin-bottom: 4rem;
     font-size: 2.5rem;
     line-height: 1.2;
 }
 
 .highlight-title {
     color: var(--secondary-color);
-    display: block; /* Quebra a linha para um melhor destaque visual */
+    display: block;
     font-size: 1.5rem;
     font-weight: 500;
     margin-top: 0.5rem;
@@ -436,21 +553,22 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 .author-block {
     display: flex;
     align-items: center;
-    gap: 4rem; /* Aumenta o espaçamento entre a imagem e o texto */
-    max-width: 1000px; /* Aumenta a largura máxima do bloco */
+    gap: 4rem;
+    max-width: 1000px;
     margin: 0 auto;
-    background-color: #FFFFFF; /* Adiciona um fundo para o bloco */
-    padding: 3rem; /* Adiciona padding interno */
-    border-radius: 15px; /* Cantos arredondados */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    background-color: #FFFFFF;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsividade do bloco */
 @media (max-width: 992px) {
     .author-block {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
+        padding: 2rem; /* Reduz o padding interno do bloco */
+        margin: 0 1rem; /* Adiciona margem lateral para não grudar nas bordas */
     }
 }
 
@@ -490,17 +608,25 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-/* Efeito de hover no link que contém a imagem */
 .author-image-link:hover .author-image {
     transform: scale(1.08);
     box-shadow: 0 0 0 5px var(--secondary-color), 0 0 0 8px rgba(52, 152, 219, 0.5);
 }
 
-/* Responsividade da imagem */
 @media (max-width: 768px) {
+    #sobre-ape-section .section-title {
+        font-size: 2rem; /* Reduz o tamanho do título principal */
+    }
+    .highlight-title {
+        font-size: 1.2rem; /* Reduz o tamanho do subtítulo destacado */
+    }
     .author-image {
-        width: 250px;
-        height: 250px;
+        width: 200px; /* Reduz ainda mais o tamanho da imagem */
+        height: 200px;
+    }
+    .author-info p {
+        font-size: 1rem; /* Reduz o tamanho do texto do parágrafo */
+        margin-bottom: 1rem;
     }
 }
 
@@ -515,7 +641,6 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Altera a direção do layout para que o primeiro item (imagem) fique à esquerda */
     flex-direction: row; 
     gap: 4rem;
     max-width: 1000px;
@@ -528,10 +653,10 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 
 @media (max-width: 992px) {
     .final-autoridade-block {
-        /* Para telas menores, volta a ser coluna (imagem em cima, texto embaixo) */
         flex-direction: column; 
         gap: 2rem;
         padding: 2rem;
+        margin: 0 1rem; /* Adiciona margem lateral */
     }
 }
 
@@ -553,7 +678,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 
 .final-autoridade-image-wrapper {
     flex-shrink: 0;
-    order: -1; /* Manda o elemento para o início, garantindo a imagem à esquerda */
+    order: -1;
     position: relative;
     width: 350px;
     height: 350px;
@@ -573,12 +698,31 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+    #autoridade-final-section {
+        padding: 4rem 1rem;
+    }
+    .final-autoridade-block {
+        padding: 1.5rem;
+    }
+    .final-autoridade-text h2.section-title {
+        font-size: 1.8rem; /* Reduz o tamanho do título */
+    }
+    .final-autoridade-text p {
+        font-size: 1rem; /* Reduz o tamanho do parágrafo */
+    }
+    .final-autoridade-image-wrapper {
+        width: 250px; /* Reduz a largura da imagem */
+        height: 250px;
+    }
+}
+
 /* 7. CTA Final */
 #cta-final-section {
     background-color: var(--primary-color);
     color: #FFFFFF;
     text-align: center;
-    padding: 6rem 0;
+    padding: 6rem 0; /* Padding padrão para desktop */
 }
 
 #cta-final-section .section-title {
@@ -589,7 +733,6 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     line-height: 1.2;
 }
 
-/* Estilo para a palavra-chave destacada no título */
 .highlight-text-cta {
     color: var(--secondary-color);
 }
@@ -597,7 +740,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 #cta-final-section .section-text {
     color: #FFFFFF;
     max-width: 700px;
-    margin: 0 auto 2.5rem; /* Aumenta o espaçamento antes do botão */
+    margin: 0 auto 2.5rem;
     font-size: 1.2rem;
     line-height: 1.6;
 }
@@ -611,12 +754,10 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     font-weight: 700;
     text-decoration: none;
     border-radius: 50px;
-    /* Adicionando a transição para todas as propriedades */
     transition: all 0.4s ease-in-out;
     animation: pulsate 2s infinite ease-in-out;
 }
 
-/* Animação de pulsação para o botão */
 @keyframes pulsate {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
     50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(52, 152, 219, 0); }
@@ -629,42 +770,63 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     border: 2px solid var(--secondary-color);
 }
 
-/* Estado de hover do botão */
 .primary-cta:hover {
-    background-color: #007BFF; /* Muda para um azul mais escuro */
-    color: #FFFFFF; /* Garante que o texto continue branco */
+    background-color: #007BFF;
+    color: #FFFFFF;
     border-color: var(--primary-color);
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: none;
 }
 
-/* Media Queries (Responsividade) */
-@media (max-width: 992px) {
-    .ebook-item, .author-block {
-        flex-direction: column;
-        text-align: center;
-    }
-    .ebook-item.reverse-layout {
-        flex-direction: column;
-    }
-    .ebook-cover {
-        max-width: 80%;
-    }
-    .author-image {
-        margin: 0 auto 1.5rem;
-    }
-    .author-info p {
-        text-align: left;
-    }
-}
-
+/*
+ * Media Queries para a Seção de CTA Final
+ */
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.5rem; }
-    .hero-subtitle { font-size: 1.2rem; }
-    .solution-cards-container {
-        grid-template-columns: 1fr;
+    #cta-final-section {
+        padding: 4rem 1rem; /* Reduz o padding vertical e adiciona padding lateral */
     }
-    .ebook-item {
-        gap: 2rem;
+
+    #cta-final-section .section-title {
+        font-size: 2rem; /* Reduz o tamanho do título */
+        margin-bottom: 1rem;
     }
+
+    #cta-final-section .section-text {
+        font-size: 1rem; /* Reduz o tamanho do texto */
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        padding: 1rem 2.5rem; /* Reduz o padding do botão */
+        font-size: 1rem; /* Reduz o tamanho da fonte do botão */
+    }
+}
+
+/* Estilo do Scrollbar para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem vertical */
+    height: 12px; /* Altura da barra de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray); /* Cor de fundo da trilha */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color); /* Cor do "polegar" */
+    border-radius: 10px;
+    border: 3px solid var(--light-gray); /* Adiciona uma borda para um efeito 3D sutil */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color); /* Cor do "polegar" no hover */
+}
+
+/* Estilo do Scrollbar para Firefox */
+body {
+    scrollbar-width: thin; /* Define a largura como fina */
+    scrollbar-color: var(--secondary-color) var(--light-gray); /* Cor do "polegar" e da trilha */
 }
