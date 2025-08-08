@@ -370,46 +370,73 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
         margin-bottom: 2rem;
     }
 }
+/* Media Queries para a Seção de Mapa (Revisada para cards quadrados) */
 @media (max-width: 768px) {
     #solucao-section::before {
-        background-attachment: scroll;
+        background-attachment: scroll; /* Desativa o efeito parallax */
     }
+
     .carousel-container {
-        height: auto;
-        flex-direction: column;
-        overflow: visible; /* Permite que todos os cards fiquem visíveis */
+        height: 350px; /* Altura do container para acomodar os cards */
+        overflow: hidden;
     }
-    .carousel-track {
-        flex-direction: column;
-        transition: none; /* Remove a transição para evitar bugs */
-        transform: none !important; /* Reseta o transform do JS */
-    }
+
     .solution-card {
-        min-width: 90%;
-        margin: 1rem 0;
-        transform: scale(1); /* Reseta a escala para 1 */
-        opacity: 1; /* Torna todos os cards opacos */
-        padding: 2rem 1.5rem;
+        width: 280px; /* Define uma largura fixa para o card */
+        height: 280px; /* Define uma altura igual para manter a proporção quadrada */
+        min-width: unset; /* Remove a largura mínima que estava esticando o card */
+        margin: 0 1rem;
+        padding: 1.5rem;
+        
+        /* Centraliza o conteúdo dentro do card */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Ajuste nas escalas para telas menores */
+        transform: scale(0.85); 
+        opacity: 0.8;
     }
+
+    /* O card ativo */
     .solution-card.active {
-        transform: scale(1); /* Reseta o active para não ter zoom extra */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     }
-    .carousel-button {
-        display: none; /* Esconde os botões de navegação */
-    }
+    
     .solution-card h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
+
     .solution-card.active h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
+    
+    .solution-card p {
+        font-size: 0.9rem;
+    }
+
     .icon-circle {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        margin-bottom: 0.5rem;
     }
-    .icon-circle img {
-        width: 30px;
+
+    .carousel-button {
+        display: block;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0.8rem;
+    }
+
+    #prev-button {
+        left: 0.5rem;
+    }
+
+    #next-button {
+        right: 0.5rem;
     }
 }
 
@@ -641,7 +668,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row; 
+    flex-direction: row; /* Essa regra garante que a imagem (primeiro elemento no HTML) fique à esquerda */
     gap: 4rem;
     max-width: 1000px;
     margin: 0 auto;
@@ -656,7 +683,11 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
         flex-direction: column; 
         gap: 2rem;
         padding: 2rem;
-        margin: 0 1rem; /* Adiciona margem lateral */
+        margin: 0 0.8rem;
+    }
+    .final-autoridade-text {
+        order: -1; /* Essa regra só é ativada em telas menores */
+        text-align: center;
     }
 }
 
@@ -678,7 +709,6 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 
 .final-autoridade-image-wrapper {
     flex-shrink: 0;
-    order: -1;
     position: relative;
     width: 350px;
     height: 350px;
@@ -706,13 +736,13 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
         padding: 1.5rem;
     }
     .final-autoridade-text h2.section-title {
-        font-size: 1.8rem; /* Reduz o tamanho do título */
+        font-size: 1.8rem;
     }
     .final-autoridade-text p {
-        font-size: 1rem; /* Reduz o tamanho do parágrafo */
+        font-size: 1rem;
     }
     .final-autoridade-image-wrapper {
-        width: 250px; /* Reduz a largura da imagem */
+        width: 250px;
         height: 250px;
     }
 }
