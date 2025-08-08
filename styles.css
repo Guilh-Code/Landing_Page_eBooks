@@ -1,0 +1,670 @@
+/* Definição de Variáveis CSS */
+:root {
+    /* Cores */
+    --primary-color: #2C3E50; /* Azul escuro */
+    --secondary-color: #3498DB; /* Azul vibrante */
+    --background-color: #FFFFFF;
+    --light-gray: #ECF0F1;
+    --text-color: #2C3E50;
+    --cta-color: #27AE60; /* Verde */
+    --cta-hover-color: #219d55;
+
+    /* Fontes */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+
+    /* Transições e Animações */
+    --transition-speed: 0.3s;
+    --fade-in-duration: 0.8s;
+}
+
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita a barra de rolagem horizontal em transições */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+h2 { font-size: clamp(2rem, 5vw, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Animações de Entrada */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--fade-in-duration) ease-out, transform var(--fade-in-duration) ease-out;
+}
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Botões CTA */
+.cta-button {
+    display: inline-block;
+    background-color: var(--cta-color);
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: all var(--transition-speed) ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: var(--cta-hover-color);
+    box-shadow: 0 8px 15px rgba(39, 174, 96, 0.3);
+}
+
+/* 1. Hero Section */
+#hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Imagens/Fundo_header.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax */
+}
+
+.hero-title {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.hero-title .highlight {
+    color: var(--secondary-color);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--light-gray);
+}
+
+/* Seções de Conteúdo */
+.content-section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 3. Seção da Solução */
+#problema-section {
+    background-color: #FFFFFF;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 6rem 0;
+}
+
+#problema-section .section-title {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* Destaque para a palavra-chave no título */
+.highlight-text-problem {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* Removendo o ícone, vamos focar em dar mais destaque ao texto */
+.section-text strong {
+    color: var(--secondary-color);
+}
+
+.section-text {
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.section-text:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .section-text {
+        font-size: 1rem;
+    }
+}
+
+/* Seção Mapa*/
+
+#solucao-section {
+    background-color: var(--light-gray);
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0;
+}
+
+/* Estilo específico para o título dentro da seção de solução */
+#solucao-section .section-title {
+    color: #FFFFFF;
+}
+
+.carousel-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+/* O fundo do mapa */
+#solucao-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Imagens/Fundo_1_mapa.png') no-repeat center center/cover;
+    opacity: 0.93;
+    z-index: 0;
+    background-attachment: fixed; /* Efeito Parallax */
+}
+
+.carousel-container {
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Garante que apenas 3 cards apareçam */
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.solution-card {
+    background-color: #FFFFFF;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 350px;
+    margin: 0 2rem;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+    position: relative;
+    /* O estado padrão dos cards na fila */
+    transform: scale(0.65); 
+    opacity: 0.7; /* Fica 30% mais transparente */
+}
+
+/* O card selecionado fica maior e mais opaco */
+.solution-card.active {
+    transform: scale(1.1); /* Fica 10% maior que o tamanho original */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    opacity: 1; /* Fica totalmente opaco */
+}
+
+/* Os estilos para o icon-circle, h3, etc, podem permanecer os mesmos. */
+.icon-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+    transition: all 0.3s ease;
+    /* Estilos para o emoji */
+    font-size: 50px; /* Define o tamanho do emoji */
+}
+
+.solution-card.active .icon-circle {
+    transform: scale(1.1);
+}
+
+.icon-circle img {
+    width: 40px;
+}
+
+.solution-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.solution-card.active h3 {
+    font-size: 2.2rem;
+}
+
+.highlight-text {
+    color: var(--secondary-color);
+}
+
+/* Botões de Navegação */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-button:hover {
+    background-color: #FFFFFF;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#prev-button {
+    left: 2rem;
+}
+
+#next-button {
+    right: 2rem;
+}
+
+.carousel-button svg {
+    color: var(--primary-color);
+    width: 24px;
+    height: 24px;
+}
+
+/* 4. Detalhes dos E-books */
+#ebooks-section {
+    padding: 6rem 0;
+}
+
+.ebook-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem; /* Aumenta o espaçamento entre a imagem e o texto */
+    margin-bottom: 6rem; /* Aumenta o espaçamento entre os blocos de e-book */
+}
+
+@media (max-width: 992px) {
+    .ebook-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+
+.ebook-item.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 992px) {
+    .ebook-item.reverse-layout {
+        flex-direction: column;
+    }
+}
+
+.ebook-cover {
+    max-width: 450px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Aumenta a sombra padrão */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.ebook-cover:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Sombra mais forte no hover */
+}
+
+.ebook-details h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+.ebook-details p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.ebook-features {
+    list-style: none;
+    padding: 0;
+}
+
+.ebook-features li {
+    display: flex;
+    align-items: flex-start; /* Alinha o ícone e o texto ao topo */
+    font-family: var(--font-body);
+    font-weight: 600;
+    margin-bottom: 0.8rem; /* Aumenta o espaçamento entre os itens */
+    font-size: 1rem;
+}
+
+.check-icon {
+    color: var(--cta-color);
+    margin-right: 0.8rem;
+    font-size: 1.4rem; /* Aumenta o tamanho do ícone */
+    line-height: 1; /* Garante que o ícone esteja alinhado com o texto */
+    transform: translateY(2px); /* Pequeno ajuste para alinhamento vertical */
+}
+
+@media (max-width: 992px) {
+    .ebook-details h3 {
+        font-size: 2rem;
+    }
+    .ebook-cover {
+        max-width: 350px;
+    }
+}
+
+/* 5. Seção de Autoridade */
+#sobre-ape-section {
+    background-color: var(--light-gray);
+    padding: 6rem 0; /* Adiciona um espaçamento vertical padrão */
+}
+
+/* Título com destaque */
+#sobre-ape-section .section-title {
+    text-align: center;
+    margin-bottom: 4rem; /* Aumenta o espaçamento abaixo do título */
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.highlight-title {
+    color: var(--secondary-color);
+    display: block; /* Quebra a linha para um melhor destaque visual */
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.author-block {
+    display: flex;
+    align-items: center;
+    gap: 4rem; /* Aumenta o espaçamento entre a imagem e o texto */
+    max-width: 1000px; /* Aumenta a largura máxima do bloco */
+    margin: 0 auto;
+    background-color: #FFFFFF; /* Adiciona um fundo para o bloco */
+    padding: 3rem; /* Adiciona padding interno */
+    border-radius: 15px; /* Cantos arredondados */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+}
+
+/* Responsividade do bloco */
+@media (max-width: 992px) {
+    .author-block {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+
+.author-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.author-info p:last-child {
+    margin-bottom: 0;
+}
+
+.author-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    font-weight: 700;
+}
+
+.author-link:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.author-image-link {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+.author-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Efeito de hover no link que contém a imagem */
+.author-image-link:hover .author-image {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 5px var(--secondary-color), 0 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+/* Responsividade da imagem */
+@media (max-width: 768px) {
+    .author-image {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Nova Seção: Autoridade Final */
+#autoridade-final-section {
+    background-color: white;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.final-autoridade-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Altera a direção do layout para que o primeiro item (imagem) fique à esquerda */
+    flex-direction: row; 
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+    .final-autoridade-block {
+        /* Para telas menores, volta a ser coluna (imagem em cima, texto embaixo) */
+        flex-direction: column; 
+        gap: 2rem;
+        padding: 2rem;
+    }
+}
+
+.final-autoridade-text {
+    text-align: left;
+}
+
+.final-autoridade-text h2.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.final-autoridade-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.final-autoridade-image-wrapper {
+    flex-shrink: 0;
+    order: -1; /* Manda o elemento para o início, garantindo a imagem à esquerda */
+    position: relative;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.final-autoridade-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.final-autoridade-image-wrapper:hover .final-autoridade-image {
+    transform: scale(1.05);
+}
+
+/* 7. CTA Final */
+#cta-final-section {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 6rem 0;
+}
+
+#cta-final-section .section-title {
+    color: #FFFFFF;
+    font-size: 3rem; /* Título maior para mais impacto */
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Estilo para a palavra-chave destacada no título */
+.highlight-text-cta {
+    color: var(--secondary-color);
+}
+
+#cta-final-section .section-text {
+    color: #FFFFFF;
+    max-width: 700px;
+    margin: 0 auto 2.5rem; /* Aumenta o espaçamento antes do botão */
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    /* Adicionando a transição para todas as propriedades */
+    transition: all 0.4s ease-in-out;
+    animation: pulsate 2s infinite ease-in-out;
+}
+
+/* Animação de pulsação para o botão */
+@keyframes pulsate {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(52, 152, 219, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
+}
+
+.primary-cta {
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    border: 2px solid var(--secondary-color);
+}
+
+/* Estado de hover do botão */
+.primary-cta:hover {
+    background-color: #007BFF; /* Muda para um azul mais escuro */
+    color: #FFFFFF; /* Garante que o texto continue branco */
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries (Responsividade) */
+@media (max-width: 992px) {
+    .ebook-item, .author-block {
+        flex-direction: column;
+        text-align: center;
+    }
+    .ebook-item.reverse-layout {
+        flex-direction: column;
+    }
+    .ebook-cover {
+        max-width: 80%;
+    }
+    .author-image {
+        margin: 0 auto 1.5rem;
+    }
+    .author-info p {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .solution-cards-container {
+        grid-template-columns: 1fr;
+    }
+    .ebook-item {
+        gap: 2rem;
+    }
+}
