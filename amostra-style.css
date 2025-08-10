@@ -1,0 +1,259 @@
+/* Estilos para a página de amostra do ebook */
+:root {
+    --primary-color: #0096ff; /* Azul mais vibrante */
+    --secondary-color: #FFC107;
+    --accent-color: #28a745;
+    --heading-color: #f0f0f0; /* Cores claras para contraste no fundo escuro */
+    --text-color: #cccccc;
+    --light-gray: #f2f4f8;
+    --white: #ffffff;
+    --dark-blue: #0056b3;
+    --border-color: #dee2e6;
+    --subtle-blue-bg: #eaf3ff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    /* NOVO: Fundo com degradê escuro e efeito de universo */
+    background: radial-gradient(circle at 50% 50%, #1a2333 0%, #0a111a 100%);
+    background-attachment: fixed; /* O fundo permanece fixo ao rolar a página */
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.amostra-main-content {
+    padding: 60px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button:hover {
+    color: var(--dark-blue);
+}
+
+.intro-section {
+    margin-bottom: 50px;
+}
+
+.amostra-title {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.amostra-subtitle {
+    font-size: 1.2em;
+    color: var(--heading-color);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.amostra-content-box {
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo transparente para o contraste */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px; /* Borda mais arredondada */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra mais profunda */
+    display: flex;
+    flex-direction: column; /* Padrão para mobile */
+    align-items: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    transform: translateY(0);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.amostra-content-box:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.ebook-image-wrapper {
+    position: relative;
+    /* Ajustado para não ter largura máxima, permitindo o alinhamento flexível */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Garante que a imagem não saia da borda arredondada */
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    max-width: 350px; /* Reduzi o max-width para um visual mais equilibrado */
+}
+
+.ebook-image-wrapper:hover {
+    transform: scale(1.03);
+}
+
+.ebook-cover-image {
+    width: 100%; /* Garante que a imagem ocupe 100% da largura do contêiner */
+    height: auto;
+    display: block;
+}
+
+.ebook-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.preview-cta-title {
+    font-size: 2em;
+    color: var(--heading-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.primary-cta {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-cta:hover {
+    background-color: var(--dark-blue);
+}
+
+.full-access-cta {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.full-access-cta:hover {
+    background-color: #218838;
+}
+
+.call-to-action-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.call-to-action-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+@media (min-width: 768px) {
+    .amostra-content-box {
+        flex-direction: row;
+        align-items: center; /* Centraliza os itens verticalmente */
+    }
+    .ebook-details {
+        text-align: left;
+    }
+    .ebook-image-wrapper {
+        align-self: center; /* Centraliza a imagem verticalmente */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .amostra-title {
+        font-size: 2.2em;
+    }
+    .amostra-subtitle {
+        font-size: 1em;
+    }
+    .ebook-cover-image {
+        max-width: 380px;
+    }
+    .back-button {
+        position: static;
+        margin-bottom: 20px;
+    }
+    .preview-cta-title {
+        text-align: center;
+    }
+    .ebook-details {
+        text-align: center;
+    }
+}
+
+/* Estilos para o novo banner de desconto */
+.discount-banner-section {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 150, 255, 0.1); /* Azul sutil e transparente */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 150, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.discount-text {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.discount-text strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+.discount-text i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}

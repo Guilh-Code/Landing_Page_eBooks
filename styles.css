@@ -98,7 +98,11 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Imagens/Fundo_header.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax */
+    background-attachment: fixed;
+}
+
+.hero-content {
+    padding: 0 15px;
 }
 
 .hero-title {
@@ -121,6 +125,25 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     color: var(--light-gray);
 }
 
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 2rem;
+}
+
+.secondary-cta {
+    background-color: white;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-cta:hover {
+    background-color: rgb(147, 176, 255);
+    color: white;
+}
+
 /* Seções de Conteúdo */
 .content-section {
     padding: 6rem 0;
@@ -141,48 +164,103 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
     text-align: center;
 }
 
-/* Media Query para telas menores (dispositivos móveis) */
-@media (max-width: 768px) {
-    #hero-section {
-        background-attachment: scroll; /* Desativa o efeito parallax */
-        height: auto;
-        min-height: 100vh;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
+/* --- Estilos para a Nova Seção de Preview (Atualizada) --- */
+#preview-section {
+    background: radial-gradient(circle at 50% 50%, #1a2333 0%, #0a111a 100%);
+    background-attachment: fixed;
+    padding: 60px 0;
+    color: var(--text-color);
 }
 
+.preview-container {
+    padding: 0;
+}
+
+.preview-box-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.preview-box-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+#preview-section .section-title {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+#preview-section .section-text {
+    margin-bottom: 30px;
+    color: white;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.button-wrapper {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.primary-cta {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-cta:hover {
+    background-color: var(--dark-blue);
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .content-section {
-        padding: 4rem 0; /* Diminui o padding vertical das seções */
+    #preview-section {
+        padding: 40px 0;
+    }
+    
+    .preview-box-wrapper {
+        padding: 20px;
     }
 
-    .section-title {
-        font-size: 2rem; /* Reduz o tamanho do título em telas menores */
-        margin-bottom: 2rem;
+    #preview-section .section-title {
+        font-size: 2rem;
     }
 
-    #hero-section {
-        background-attachment: scroll; /* Desativa o efeito parallax */
-        height: auto;
-        min-height: 100vh;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-
-    .hero-title {
-        font-size: 2.5rem; /* Reduz o tamanho do título principal */
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem; /* Reduz o tamanho do subtítulo */
+    #preview-section .section-text {
+        font-size: 1rem;
     }
 
     .cta-button {
-        padding: 0.8rem 2rem;
+        padding: 12px 24px;
         font-size: 1rem;
     }
 }
+
 
 
 /*
@@ -618,7 +696,7 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 
 .author-link:hover {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
+    text-decoration: none;
 }
 
 .author-image-link {
@@ -801,12 +879,11 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 }
 
 .primary-cta:hover {
-    background-color: #007BFF;
-    color: #FFFFFF;
+    background-color: #1d63ad;
+    color: white;
     border-color: var(--primary-color);
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    animation: none;
 }
 
 /*

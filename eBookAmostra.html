@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amostra Exclusiva - Ebook: Descomplicando a Carreira Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="amostra-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" href="Imagens/FaviCon_eBooks-removebg-preview.png" type="image/x-icon">
+
+    <!-- CSS para a animação fade-in-up -->
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="amostra-main-content">
+        <div class="container">
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Voltar para a Home</a>
+            
+            <!-- Adicionando a classe 'fade-in-up' e um delay para cada seção -->
+            <div class="intro-section text-center fade-in-up" style="transition-delay: 0.2s;">
+                <h1 class="amostra-title">Bem-vindo à sua Prévia Exclusiva!</h1>
+                <p class="amostra-subtitle">Você está a um passo de mergulhar no conteúdo que <strong>transformará sua carreira tech.</strong></p>
+            </div>
+
+            <div class="discount-banner-section text-center fade-in-up" style="transition-delay: 0.4s;">
+                <p class="discount-text"><i class="fas fa-bullhorn"></i> Mergulhe no conteúdo exclusivo e garanta um cupom de <strong>15% de desconto</strong> ao ler a introdução do conteúdo!</p>
+            </div>
+
+            <div class="amostra-content-box fade-in-up" style="transition-delay: 0.6s;">
+                <div class="ebook-image-wrapper">
+                    <img src="Imagens/CAPA_principal_ebooks.png" alt="Capa do Pacote de Ebooks" class="ebook-cover-image">
+                </div>
+                <div class="ebook-details text-left">
+                    <h2 class="preview-cta-title">Desbloqueie o Primeiro Capítulo</h2>
+                    <p>Esta é a sua oportunidade de ler o início do nosso e-book <strong>"Descomplicando a Carreira Tech"</strong>. Descubra por que este conteúdo é a chave para você se destacar e crescer no mercado.</p>
+                    <p>Ao baixar a amostra, você terá acesso a <strong>6 páginas de pura estratégia e conhecimento.</strong> Prepare-se para ser impactado!</p>
+                    <a href="Introducao_a_Sua_Jornada_Tech-APE.pdf" download class="cta-button primary-cta">Baixar Amostra Grátis <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+
+            <div class="call-to-action-section text-center fade-in-up" style="transition-delay: 0.8s;">
+                <h2>O conteúdo completo está te esperando!</h2>
+                <p>O que você acabou de ler é apenas o começo. Imagine o poder de ter o pacote completo em suas mãos. <strong>Acelere sua jornada e conquiste o sucesso que você merece!</strong></p>
+                <a href="https://pay.kiwify.com.br/C1gJfgt" target="_blank" class="cta-button full-access-cta">Quero o Pacote Completo Agora <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript para ativar a animação no scroll -->
+    <script>
+        const elements = document.querySelectorAll('.fade-in-up');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }); // Ajuste o threshold conforme necessário
+
+        elements.forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>
