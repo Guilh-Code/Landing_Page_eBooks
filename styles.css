@@ -88,80 +88,133 @@ h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
 
 /* 1. Hero Section */
 #hero-section {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Imagens/Fundo_header.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Imagens/Fundo_header.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .hero-content {
-    padding: 0 15px;
+  padding: 0 15px;
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: #FFFFFF;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
 }
 
 .hero-title .highlight {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--light-gray);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--light-gray);
 }
 
 .header-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 2rem;
 }
 
 .secondary-cta {
-    background-color: white;
-    border: 2px solid var(--secondary-color);
-    color: var(--secondary-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: white;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .secondary-cta:hover {
-    background-color: rgb(147, 176, 255);
-    color: white;
+  background-color: rgb(147, 176, 255);
+  color: white;
 }
 
 /* Seções de Conteúdo */
 .content-section {
-    padding: 6rem 0;
+  padding: 6rem 0;
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.5rem;
 }
 
 .section-text {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* --- CÓDIGO PARA TELAS MENORES (RESPONSIVIDADE) --- */
+
+/* Media query para telas com largura máxima de 768px (smartphones e tablets em modo retrato) */
+@media screen and (max-width: 768px) {
+  /* Adaptação da seção principal (Hero Section) */
+  #hero-section {
+    height: auto; /* A altura se ajusta ao conteúdo */
+    padding: 100px 15px; /* Adiciona um padding para manter o espaçamento */
+  }
+
+  .hero-title {
+    font-size: 2.5rem; /* Diminui o tamanho do título principal */
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem; /* Diminui o tamanho do subtítulo */
+    margin-bottom: 1.5rem;
+  }
+
+  /* Adaptação dos botões de cabeçalho */
+  .header-buttons {
+    flex-direction: column; /* Alinha os botões verticalmente */
+    align-items: center; /* CORREÇÃO: CENTRALIZA OS BOTÕES NA TELA */
+    gap: 20px; /* Reduz o espaçamento entre os botões */
+    margin-top: 1.5rem;
+  }
+  
+  .header-buttons a {
+    text-align: center; /* CENTRALIZA O TEXTO DENTRO DE CADA BOTÃO */
+    width: 100%; /* Faz com que os botões ocupem a largura total disponível */
+    max-width: 300px; /* Adiciona um limite para que os botões não fiquem excessivamente largos */
+  }
+
+  /* Adaptação das seções de conteúdo */
+  .section-title {
+    font-size: 2rem; /* Diminui o tamanho do título das seções */
+    margin-bottom: 2rem;
+  }
+}
+
+/* Media query adicional para telas ainda menores, como smartphones pequenos */
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
 }
 
 /* --- Estilos para a Nova Seção de Preview (Atualizada) --- */
